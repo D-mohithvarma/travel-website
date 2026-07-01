@@ -56,7 +56,7 @@ This website is hosted on **Netlify** via GitHub integration.
 4. Click **Deploy Site**
 
 ## 👤 Student Details
-- **Name:** *(D.Mohith varma)*
-- **Registration No:** *(17)*
+- **Name:** *D.Mohith varma*
+- **Registration No:** *17*
 - **Topic:** Travel Website
 - **Submission Date:** 2nd July 2026
