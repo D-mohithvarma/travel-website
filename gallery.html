@@ -21,18 +21,19 @@
         <li><a href="gallery.html" class="active">Gallery</a></li>
         <li><a href="contact.html" class="btn btn-primary">Book Now</a></li>
       </ul>
-      <button class="hamburger" aria-label="Toggle navigation menu">
+      <!-- FIX 1: Added aria-expanded="false" to hamburger (was missing on gallery page) -->
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Packages</a>
-    <a href="gallery.html">Gallery</a>
+    <a href="gallery.html" class="active">Gallery</a>
     <a href="contact.html">Book Now</a>
   </div>
 
@@ -40,23 +41,29 @@
   <header class="page-hero gallery-hero" role="banner">
     <div>
       <span class="section-label">Through the Lens</span>
+      <!-- FIX 2: Only ONE h1 on this page — correct, this is it -->
       <h1>Travel Gallery</h1>
       <p>Real photos from the destinations and experiences we've created for our travellers</p>
     </div>
   </header>
 
   <!-- ===== GALLERY ===== -->
-  <section style="background: var(--light);">
+  <section aria-labelledby="gallery-heading" style="background: var(--light);">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Destinations</span>
-        <h2>Glimpses of the World</h2>
+        <h2 id="gallery-heading">Glimpses of the World</h2>
         <p>Click any photo to view it in full. These are places waiting for you to explore.</p>
       </div>
 
-      <div class="gallery-grid">
+      <!-- FIX 3: Added role="list" to gallery grid for proper semantics -->
+      <div class="gallery-grid" role="list">
 
-        <div class="gallery-item">
+        <!-- FIX 4: Every gallery-item gets role="listitem" + the img tags already
+             had great alt text — that part was already PERFECT. No changes needed
+             to alt text. Only structural/JS fixes below. -->
+
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=700"
             alt="Eiffel Tower illuminated at night in Paris, France"
@@ -66,7 +73,7 @@
           <div class="gallery-caption">Eiffel Tower, Paris — France</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=700"
             alt="Lush green rice terraces in Ubud Bali Indonesia"
@@ -76,7 +83,7 @@
           <div class="gallery-caption">Rice Terraces, Ubud — Bali</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=700"
             alt="Iconic blue dome church in Oia village Santorini Greece"
@@ -86,7 +93,7 @@
           <div class="gallery-caption">Oia Village — Santorini, Greece</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1548013146-72479768bada?w=700"
             alt="Taj Mahal reflecting pool at sunrise in Agra India"
@@ -96,7 +103,7 @@
           <div class="gallery-caption">Taj Mahal at Dawn — Agra, India</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=700"
             alt="Cherry blossom trees lining a path to a temple in Kyoto Japan"
@@ -106,7 +113,7 @@
           <div class="gallery-caption">Cherry Blossom Season — Kyoto, Japan</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=700"
             alt="Dubai skyline with Burj Khalifa and modern skyscrapers at dusk"
@@ -116,7 +123,7 @@
           <div class="gallery-caption">Burj Khalifa Skyline — Dubai, UAE</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700"
             alt="Snow capped Swiss Alps mountains with clear blue lake"
@@ -126,7 +133,7 @@
           <div class="gallery-caption">Swiss Alps — Switzerland</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=700"
             alt="Traditional houseboat on Kerala backwaters surrounded by coconut trees"
@@ -136,7 +143,7 @@
           <div class="gallery-caption">Backwater Houseboat — Kerala, India</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1468306565050-ff1b80b85bef?w=700"
             alt="Traditional Thai long tail boat on clear turquoise water in Thailand"
@@ -146,7 +153,7 @@
           <div class="gallery-caption">Phi Phi Islands — Thailand</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=700"
             alt="Golden sunset over a calm Goa beach with silhouettes of palm trees"
@@ -156,7 +163,7 @@
           <div class="gallery-caption">Sunset Beach — Goa, India</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700"
             alt="Dramatic mountain range at sunrise with orange and pink sky"
@@ -166,7 +173,7 @@
           <div class="gallery-caption">Mountain Sunrise — Himalayas</div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" role="listitem">
           <img
             src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700"
             alt="Woman with backpack hiking on a mountain trail looking at a valley view"
@@ -180,24 +187,31 @@
     </div>
   </section>
 
-  <!-- ===== LIGHTBOX ===== -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">&times;</button>
-    <img id="lightboxImg" src="" alt="" />
+  <!-- ===== LIGHTBOX =====
+    FIX 5 — THE MAIN BUG:
+    Before: <img id="lightboxImg"> — script.js looks for class="lightbox-img" not id
+    Before: <div id="lightbox">   — script.js looks for class="lightbox" not id
+    Before: <button id="lightboxClose"> — script.js looks for class="lightbox-close"
+
+    After: All IDs removed, classes kept. Now script.js can find and control them.
+  -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" aria-label="Close image viewer">&times;</button>
+    <img class="lightbox-img" src="" alt="" />
   </div>
 
   <!-- ===== CTA ===== -->
-  <section class="cta-banner">
+  <section class="cta-banner" aria-labelledby="gallery-cta-heading">
     <div class="container">
       <span class="section-label">Be in the Next Photo</span>
-      <h2>Your Adventure is Waiting</h2>
+      <h2 id="gallery-cta-heading">Your Adventure is Waiting</h2>
       <p>Contact us today and we'll start building your dream trip together.</p>
       <a href="contact.html" class="btn btn-primary">Start Planning</a>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">Wander<span>lust</span></a>
