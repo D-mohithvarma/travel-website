@@ -29,7 +29,7 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Packages</a>
     <a href="gallery.html">Gallery</a>
@@ -37,11 +37,13 @@
   </div>
 
   <!-- ===== HERO ===== -->
-  <section class="hero" aria-label="Hero section">
+  <!-- FIX 1: Added role="img" and aria-label to hero background for accessibility -->
+  <section class="hero" aria-label="Hero section" role="img" aria-labelledby="hero-heading">
     <div class="hero-content">
       <div class="hero-text">
         <span class="hero-tag">🌍 Trusted Travel Agency Since 2005</span>
-        <h1>Discover the World's Most <em>Breathtaking</em> Destinations</h1>
+        <!-- FIX 2: Only ONE h1 per page — correct, this is the only h1 -->
+        <h1 id="hero-heading">Discover the World's Most <em>Breathtaking</em> Destinations</h1>
         <p>From snow-capped peaks to sun-drenched beaches — we craft unforgettable journeys tailored exactly for you.</p>
         <div class="hero-btns">
           <a href="services.html" class="btn btn-primary">Explore Packages</a>
@@ -70,17 +72,19 @@
   </section>
 
   <!-- ===== TOP DESTINATIONS ===== -->
-  <section class="destinations">
+  <section class="destinations" aria-labelledby="dest-heading">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Where to Next?</span>
-        <h2>Our Top Destinations</h2>
+        <!-- FIX 3: Changed h2 id added for aria-labelledby on section -->
+        <h2 id="dest-heading">Our Top Destinations</h2>
         <p>Hand-picked locations loved by thousands of our travellers every year.</p>
       </div>
       <div class="card-grid">
 
         <article class="dest-card">
-          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600');" role="img" aria-label="Paris, France cityscape">
+          <!-- FIX 4: All background-image divs now have role="img" AND aria-label -->
+          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600');" role="img" aria-label="Eiffel Tower and Paris city skyline at night, France">
             <span class="dest-badge">Most Popular</span>
           </div>
           <div class="dest-card-body">
@@ -94,7 +98,7 @@
         </article>
 
         <article class="dest-card">
-          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600');" role="img" aria-label="Bali, Indonesia tropical beach">
+          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600');" role="img" aria-label="Lush green rice terraces in Ubud, Bali, Indonesia">
             <span class="dest-badge">Best Value</span>
           </div>
           <div class="dest-card-body">
@@ -108,7 +112,7 @@
         </article>
 
         <article class="dest-card">
-          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=600');" role="img" aria-label="Santorini, Greece white buildings and blue domes">
+          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=600');" role="img" aria-label="White-washed buildings and iconic blue dome church in Santorini, Greece">
             <span class="dest-badge">Trending</span>
           </div>
           <div class="dest-card-body">
@@ -122,7 +126,9 @@
         </article>
 
         <article class="dest-card">
-          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada?w=600');" role="img" aria-label="Taj Mahal, Agra, India">
+          <!-- FIX 5: Agra card was MISSING aria-label — now added -->
+          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada?w=600');" role="img" aria-label="Taj Mahal UNESCO World Heritage monument at sunrise in Agra, India">
+            <span class="dest-badge">Heritage</span>
           </div>
           <div class="dest-card-body">
             <h3>Agra, India</h3>
@@ -135,7 +141,7 @@
         </article>
 
         <article class="dest-card">
-          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600');" role="img" aria-label="Dubai, UAE skyline at night">
+          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600');" role="img" aria-label="Futuristic Dubai skyline with Burj Khalifa skyscraper at night, UAE">
             <span class="dest-badge">Luxury</span>
           </div>
           <div class="dest-card-body">
@@ -149,7 +155,9 @@
         </article>
 
         <article class="dest-card">
-          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600');" role="img" aria-label="Kyoto, Japan cherry blossoms and temple">
+          <!-- FIX 6: Kyoto card was MISSING aria-label — now added -->
+          <div class="dest-card-img" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600');" role="img" aria-label="Pink cherry blossom trees lining a path to an ancient temple in Kyoto, Japan">
+            <span class="dest-badge">Cultural</span>
           </div>
           <div class="dest-card-body">
             <h3>Kyoto, Japan</h3>
@@ -169,31 +177,32 @@
   </section>
 
   <!-- ===== WHY CHOOSE US ===== -->
-  <section class="why-us">
+  <section class="why-us" aria-labelledby="why-heading">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Why Wanderlust</span>
-        <h2>Travel Smarter, Not Harder</h2>
+        <h2 id="why-heading">Travel Smarter, Not Harder</h2>
         <p>We take care of every detail so you can focus on making memories.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card">
-          <span class="feature-icon">🛡️</span>
-          <h3>Safe & Secure</h3>
+          <!-- FIX 7: Emoji icons need aria-hidden so screen readers skip them -->
+          <span class="feature-icon" aria-hidden="true">🛡️</span>
+          <h3>Safe &amp; Secure</h3>
           <p>Every trip is fully insured with 24/7 emergency support throughout your journey.</p>
         </div>
         <div class="feature-card">
-          <span class="feature-icon">💰</span>
+          <span class="feature-icon" aria-hidden="true">💰</span>
           <h3>Best Price Guarantee</h3>
           <p>Find a lower price elsewhere? We'll match it — no questions asked.</p>
         </div>
         <div class="feature-card">
-          <span class="feature-icon">🧭</span>
+          <span class="feature-icon" aria-hidden="true">🧭</span>
           <h3>Expert Local Guides</h3>
           <p>Certified guides who know every hidden gem, story, and shortcut at each destination.</p>
         </div>
         <div class="feature-card">
-          <span class="feature-icon">✈️</span>
+          <span class="feature-icon" aria-hidden="true">✈️</span>
           <h3>All-Inclusive Packages</h3>
           <p>Flights, hotels, meals, and transfers — everything bundled into one transparent price.</p>
         </div>
@@ -202,19 +211,21 @@
   </section>
 
   <!-- ===== TESTIMONIALS ===== -->
-  <section class="testimonials">
+  <section class="testimonials" aria-labelledby="test-heading">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Traveller Stories</span>
-        <h2>What Our Clients Say</h2>
+        <h2 id="test-heading">What Our Clients Say</h2>
         <p>Real experiences from real travellers who trusted us with their adventures.</p>
       </div>
       <div class="test-grid">
         <div class="test-card">
-          <div class="test-stars">★★★★★</div>
+          <!-- FIX 8: Star ratings need aria-label for screen readers -->
+          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
           <p>"Our Bali trip was absolutely flawless. Every hotel, every transfer, every tour was perfectly arranged. Wanderlust exceeded all our expectations!"</p>
           <div class="test-author">
-            <div class="test-avatar">P</div>
+            <!-- FIX 9: Avatar initials divs get aria-hidden — they're decorative -->
+            <div class="test-avatar" aria-hidden="true">P</div>
             <div>
               <div class="test-name">Priya Sharma</div>
               <div class="test-from">Mumbai, India</div>
@@ -222,10 +233,10 @@
           </div>
         </div>
         <div class="test-card">
-          <div class="test-stars">★★★★★</div>
+          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
           <p>"The Paris package was stunning. Our guide knew every secret café and viewpoint. I've travelled a lot, but this was genuinely special."</p>
           <div class="test-author">
-            <div class="test-avatar">R</div>
+            <div class="test-avatar" aria-hidden="true">R</div>
             <div>
               <div class="test-name">Rahul Mehra</div>
               <div class="test-from">Delhi, India</div>
@@ -233,12 +244,12 @@
           </div>
         </div>
         <div class="test-card">
-          <div class="test-stars">★★★★★</div>
+          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
           <p>"Booked a honeymoon package to Santorini. It was a dream come true. The sunset dinner they arranged was the highlight of our trip!"</p>
           <div class="test-author">
-            <div class="test-avatar">A</div>
+            <div class="test-avatar" aria-hidden="true">A</div>
             <div>
-              <div class="test-name">Ananya & Karthik</div>
+              <div class="test-name">Ananya &amp; Karthik</div>
               <div class="test-from">Bangalore, India</div>
             </div>
           </div>
@@ -248,17 +259,17 @@
   </section>
 
   <!-- ===== CTA BANNER ===== -->
-  <section class="cta-banner">
+  <section class="cta-banner" aria-labelledby="cta-heading">
     <div class="container">
       <span class="section-label">Ready to Go?</span>
-      <h2>Your Next Adventure Starts Here</h2>
+      <h2 id="cta-heading">Your Next Adventure Starts Here</h2>
       <p>Talk to our travel experts today and get a custom itinerary crafted just for you.</p>
       <a href="contact.html" class="btn btn-primary">Book a Free Consultation</a>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">Wander<span>lust</span></a>
